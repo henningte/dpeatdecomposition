@@ -1,0 +1,52 @@
+Package: dpeatdecomposition
+Title: R Interface to the Peatland Decomposition Database
+Version: 1.0.0
+Authors@R: 
+    c(person(given = "Henning",
+             family = "Teickner",
+             role = c("aut", "cre", "cph"),
+             email = "henning.teickner@uni-muenster.de",
+             comment = c(ORCID = "0000-0002-3993-1182")),
+      person(given = "Edzer",
+             family = "Pebesma",
+             role = c("aut"),
+             email = "edzer.pebesma@uni-muenster.de",
+             comment = c(ORCID = "0000-0001-8049-7069")),
+      person(given = "Knorr",
+             family = "Klaus-Holger",
+             role = c("aut"),
+             email = "klaus-holger.knorr@uni-muenster.de",
+             comment = c(ORCID = "0000-0003-4175-0214")))
+Description: R Interface to the Peatland Decomposition Database. Provides 
+    functions to access the database using the 'dm' and 'RMariaDB' packages.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Imports: 
+    dm,
+    dplyr,
+    dbplyr,
+    magrittr,
+    RMariaDB,
+    tibble
+Suggests:
+  sp,
+  readODS,
+  readxl,
+  bib2df,
+  units,
+  lubridate,
+  dplyr,
+  tibble,
+  purrr,
+  tidyr,
+  DiagrammeR,
+  DiagrammeRsvg,
+  bookdown,
+  kableExtra,
+  knitr
+Language: en-US
+Depends: 
+    R (>= 4.2.0)

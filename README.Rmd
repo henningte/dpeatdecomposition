@@ -1,0 +1,116 @@
+---
+output: 
+  bookdown::github_document2:
+    number_figures: true
+    number_sections: false
+bibliography: inst/REFERENCES.bib
+always_allow_html: true
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# dpeatdecomposition: R Interface to the Peatland Decomposition Database
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+<!-- badges: end -->
+
+`dpeatdecomposition` is an R interface to the Peatland Decomposition Database. The [Peatland Decomposition Database](---todo:link) [@Teickner.2024c] stores data from published litterbag experiments related to peatlands.
+
+`dpeatdecomposition` uses functions from the [`dm`](https://github.com/cynkra/dm) and [`RMariaDB`](https://github.com/r-dbi/RMariaDB) package.
+
+## Installation
+
+You can install the development version of dpeatdecomposition like so:
+
+``` r
+remotes::install_github("henningte/dpeatdecomposition")
+```
+
+You will also need to download the [Peatland Decomposition Database](---todo) and open it in a running MariaDB instance.
+
+
+## Example
+
+
+```{r example, eval=FALSE}
+library(dpeatdecomposition)
+
+# connect to database
+con <-
+  RMariaDB::dbConnect(
+    drv = RMariaDB::MariaDB(),
+    dbname = "dpeatdecomposition",
+    default.file = "~/my.cnf"
+  )
+
+# get database as dm object
+dm_dpeatdecomposition <-
+  dpeatdecomposition::dp_get_dm(con, learn_keys = TRUE)
+
+# get information on samples
+d <- 
+  dm_dpeatdecomposition |>
+  dm::pull_tbl(samples) |>
+  as.data.frame()
+
+# disconnect
+RMariaDB::dbDisconnect(con)
+```
+
+
+# Contributions
+
+If you want to contribute to the `dpeatdecomposition` package or the Peatland Decomposition Database, feel free top open an issue or contact me.
+
+
+# Sources
+
+```{r data-sources, echo=FALSE}
+# connect to database
+con <-
+  RMariaDB::dbConnect(
+    drv = RMariaDB::MariaDB(),
+    dbname = "dpeatdecomposition",
+    default.file = "~/my.cnf"
+  )
+
+# get database as dm object
+dm_dpeatdecomposition <-
+  dpeatdecomposition::dp_get_dm(con, learn_keys = TRUE)
+
+# get information on samples
+d <- 
+  dm_dpeatdecomposition |>
+  dm::pull_tbl(citations_to_datasets) |>
+  as.data.frame()
+
+# disconnect
+RMariaDB::dbDisconnect(con)
+```
+
+Datasets currently included in the Peatland Decomposition Database are: `r d |> dplyr::mutate(id_citation = paste0("@", id_citation)) |> dplyr::pull(id_citation) |> paste(collapse = ", ")`
+
+
+# Citation
+
+Cite this package as: Henning Teickner, Klaus-Holger Knorr, and Edzer Pebesma (2024): dpeatdecomposition: R Interface to the Peatland Decomposition Database. ---todo: URL. accessed: `r Sys.Date()`. 
+
+If you use data from the Peatland Decomposition Database, cite the database and the [sources](Sources) linked to each entry you use. For details, see [@Teickner.2024c]
+
+
+# Acknowledgements
+
+Development of this database was funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) grant no. KN 929/23-1 to Klaus-Holger Knorr and grant no. PE 1632/18-1 to Edzer Pebesma.
+
+
+# References
