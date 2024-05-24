@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-`dpeatdecomposition` is an R interface to the Peatland Decomposition Database. The [Peatland Decomposition Database](---todo:link) [@Teickner.2024c] stores data from published litterbag experiments related to peatlands.
+`dpeatdecomposition` is an R interface to the Peatland Decomposition Database. The [Peatland Decomposition Database](https://doi.org/10.5281/ZENODO.11276065) [@Teickner.2024c] stores data from published litterbag experiments related to peatlands.
 
 `dpeatdecomposition` uses functions from the [`dm`](https://github.com/cynkra/dm) and [`RMariaDB`](https://github.com/r-dbi/RMariaDB) package.
 
@@ -36,7 +36,7 @@ You can install the development version of dpeatdecomposition like so:
 remotes::install_github("henningte/dpeatdecomposition")
 ```
 
-You will also need to download the [Peatland Decomposition Database](---todo) and open it in a running MariaDB instance.
+You will also need to download the [Peatland Decomposition Database](https://doi.org/10.5281/ZENODO.11276065) and open it in a running MariaDB instance.
 
 
 ## Example
@@ -67,6 +67,36 @@ d <-
 RMariaDB::dbDisconnect(con)
 ```
 
+
+## Database schema
+
+```{r db-schema, echo=FALSE, out.width="100%"}
+# connect to database
+con <-
+  RMariaDB::dbConnect(
+    drv = RMariaDB::MariaDB(),
+    dbname = "dpeatdecomposition",
+    default.file = "~/my.cnf"
+  )
+
+# get database as dm object
+dm_dpeatdecomposition <-
+  dpeatdecomposition::dp_get_dm(con, learn_keys = TRUE)
+
+db_schema_file <- "db_schema.svg"
+
+dm::dm_draw(dm_dpeatdecomposition, view_type = "all") |>
+  DiagrammeRsvg::export_svg() |>
+  charToRaw() |>
+  rsvg::rsvg_svg(db_schema_file)
+
+# disconnect
+RMariaDB::dbDisconnect(con)
+
+knitr::include_graphics(db_schema_file)
+```
+
+Fig. 1: Database schema for the Sphagnum Decomposition Database. Each table is represented as a box. Tables contain unique identifiers for data entities (e.g. datasets, samples, or measurements) --- primary keys (underlined) and foreign keys --- which are listed in each box. Keys are used to link data entities between tables. These links are shown as curves pointing to the respective links which connect tables.
 
 # Sources
 
@@ -102,7 +132,7 @@ Cite this package as:
 
 > Henning Teickner and Klaus-Holger Knorr (2024): dpeatdecomposition: R Interface to the Peatland Decomposition Database. <https://github.com/henningte/dpeatdecomposition>. accessed: `r Sys.Date()`. 
 
-If you use data from the Peatland Decomposition Database, cite the database and the [sources](Sources) linked to each entry you use. For details, see [@Teickner.2024c]
+If you use data from the Peatland Decomposition Database, cite the database and the sources linked to each entry you use. For details, see [@Teickner.2024c]
 
 
 # Contributions

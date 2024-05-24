@@ -60,6 +60,7 @@ dp_get_dm <- function(con, learn_keys = FALSE) {
       dm::dm_add_pk(missing_value_codes, id_missing_value_code) %>%
       dm::dm_add_pk(units, id_unit) %>%
       dm::dm_add_pk(custom_units, id_unit) %>%
+      dm::dm_add_pk(unit_types, unit_type) %>%
       dm::dm_add_pk(experimental_design_format, c(id_dataset, experimental_design_format)) %>%
       dm::dm_add_fk(citations_to_datasets, id_dataset, datasets, check = TRUE) %>%
       dm::dm_add_fk(citations_to_datasets, id_citation, citations, check = TRUE) %>%
@@ -78,7 +79,8 @@ dp_get_dm <- function(con, learn_keys = FALSE) {
       dm::dm_add_fk(custom_units, id_unit, units, check = TRUE) %>%
       dm::dm_add_fk(experimental_design_format, id_dataset, datasets, check = TRUE) %>%
       dm::dm_add_fk(samples_to_samples, id_sample_parent, samples, ref_columns = id_sample, check = TRUE) %>%
-      dm::dm_add_fk(samples_to_samples, id_sample_child, samples, ref_columns = id_sample, check = TRUE)
+      dm::dm_add_fk(samples_to_samples, id_sample_child, samples, ref_columns = id_sample, check = TRUE) %>%
+      dm::dm_add_fk(unit_types, unit_type, custom_units, ref_columns = unit_type, check = TRUE)
   }
 
   dm_dpeatdecomposition

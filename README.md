@@ -10,9 +10,10 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 `dpeatdecomposition` is an R interface to the Peatland Decomposition
-Database. The [Peatland Decomposition Database](---todo:link) (Teickner
-and Knorr 2024) stores data from published litterbag experiments related
-to peatlands.
+Database. The [Peatland Decomposition
+Database](https://doi.org/10.5281/ZENODO.11276065) (Teickner and Knorr
+2024) stores data from published litterbag experiments related to
+peatlands.
 
 `dpeatdecomposition` uses functions from the
 [`dm`](https://github.com/cynkra/dm) and
@@ -27,7 +28,8 @@ remotes::install_github("henningte/dpeatdecomposition")
 ```
 
 You will also need to download the [Peatland Decomposition
-Database](---todo) and open it in a running MariaDB instance.
+Database](https://doi.org/10.5281/ZENODO.11276065) and open it in a
+running MariaDB instance.
 
 ## Example
 
@@ -55,6 +57,17 @@ d <-
 # disconnect
 RMariaDB::dbDisconnect(con)
 ```
+
+## Database schema
+
+<img src="db_schema.svg" width="100%" />
+
+Fig. 1: Database schema for the Sphagnum Decomposition Database. Each
+table is represented as a box. Tables contain unique identifiers for
+data entities (e.g. datasets, samples, or measurements) — primary keys
+(underlined) and foreign keys — which are listed in each box. Keys are
+used to link data entities between tables. These links are shown as
+curves pointing to the respective links which connect tables.
 
 # Sources
 
@@ -88,8 +101,8 @@ Cite this package as:
 > 2024-05-24.
 
 If you use data from the Peatland Decomposition Database, cite the
-database and the [sources](Sources) linked to each entry you use. For
-details, see (Teickner and Knorr 2024)
+database and the sources linked to each entry you use. For details, see
+(Teickner and Knorr 2024)
 
 # Contributions
 
@@ -403,7 +416,7 @@ Journal of Botany* 74 (4): 573–81. <https://doi.org/10.1139/b96-073>.
 <div id="ref-Teickner.2024c" class="csl-entry">
 
 Teickner, Henning, and Klaus-Holger Knorr. 2024. “Peatland Decomposition
-Database.”
+Database (1.0.0).” Zenodo. <https://doi.org/10.5281/ZENODO.11276065>.
 
 </div>
 
