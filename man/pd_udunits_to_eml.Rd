@@ -17,7 +17,8 @@ units according to the Ecological Metadata Language.
 \code{pd_udunits_to_eml} takes a character vector with values representing
 udunits units and converts these to units as used by the Ecological Metadata
 Language. Note that the function converts only a specific sets of units as
-needed for the pmird database. All other units are converted to \code{NA}.
+needed for the Peatland Decomposition Database. All other units are converted
+to \code{NA}.
 }
 \examples{
 \dontrun{

@@ -10,9 +10,9 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 `dpeatdecomposition` is an R interface to the Peatland Decomposition
-Database. The [Peatland Decomposition Database](---todo:link) (Teickner,
-Pebesma, and Knorr 2024) stores data from published litterbag
-experiments related to peatlands.
+Database. The [Peatland Decomposition Database](---todo:link) (Teickner
+and Knorr 2024) stores data from published litterbag experiments related
+to peatlands.
 
 `dpeatdecomposition` uses functions from the
 [`dm`](https://github.com/cynkra/dm) and
@@ -56,12 +56,6 @@ d <-
 RMariaDB::dbDisconnect(con)
 ```
 
-# Contributions
-
-If you want to contribute to the `dpeatdecomposition` package or the
-Peatland Decomposition Database, feel free top open an issue or contact
-me.
-
 # Sources
 
 Datasets currently included in the Peatland Decomposition Database are:
@@ -86,13 +80,20 @@ Nikonova (2017)
 
 # Citation
 
-Cite this package as: Henning Teickner, Klaus-Holger Knorr, and Edzer
-Pebesma (2024): dpeatdecomposition: R Interface to the Peatland
-Decomposition Database. —todo: URL. accessed: 2024-05-14.
+Cite this package as: Henning Teickner and Klaus-Holger Knorr (2024):
+dpeatdecomposition: R Interface to the Peatland Decomposition Database.
+—todo: URL. accessed: 2024-05-24.
 
 If you use data from the Peatland Decomposition Database, cite the
 database and the [sources](Sources) linked to each entry you use. For
-details, see (Teickner, Pebesma, and Knorr 2024)
+details, see (Teickner and Knorr 2024)
+
+# Contributions
+
+We welcome contributions from everyone. Please note that the
+dpeatdecomposition project is released with a [Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/1/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
 
 # Acknowledgements
 
@@ -398,8 +399,8 @@ Journal of Botany* 74 (4): 573–81. <https://doi.org/10.1139/b96-073>.
 
 <div id="ref-Teickner.2024c" class="csl-entry">
 
-Teickner, Henning, Edzer Pebesma, and Klaus-Holger Knorr. 2024. “The
-Peatland Decomposition Database.”
+Teickner, Henning, and Klaus-Holger Knorr. 2024. “Peatland Decomposition
+Database.”
 
 </div>
 

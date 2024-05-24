@@ -1,37 +1,34 @@
-#' Access the dpeatdecomposition database as a \code{dm} object.
+#' Access the Peatland Decomposition Database as a `dm` object.
 #'
-#' \code{dp_get_dm} extracts tables and relations in the form of a
-#' \code{\link[dm:dm]{dm}} object. It is a wrapper around
-#' \code{\link[dm:dm_from_src]{dm_from_src}} which manually adds primary and
+#' `dp_get_dm` extracts tables and relations in the form of a
+#' `dm` object. It is a wrapper around
+#' [dm::dm_from_src()] which manually adds primary and
 #' foreign keys to the tables which dm currently does not support for MariaDB
 #' databases.
 #'
-#' @param con A connection to the dpeatdecomposition database. This should be an object of
-#' class \code{\link[RMariaDB:MariaDBConnection]{MariaDBConnection}}, created
-#' using \code{\link[RMariaDB:dbConnect]{dbConnect}}.
+#' @param con A connection to the Peatland Decomposition Database. This should
+#' be an object of class `MariaDBConnection`, created with [RMariaDB::dbConnect()](RMariaDB::dbConnect_MariaDBDriver).
 #'
 #' @param learn_keys A logical value indicating if primary and foreign keys
-#' should be assigned (\code{TRUE}) or not (\code{FALSE}).
+#' should be assigned (`TRUE`) or not (`FALSE`).
 #'
-#' @return A \code{dm} object with the dpeatdecomposition database and all primary and
+#' @return A `dm` object with the Peatland Decomposition Database and all primary and
 #' foreign keys.
 #'
 #' @examples
 #' \dontrun{
 #' # connect to database
 #' con <-
-#'   RMariaDB::dbConnect( # ---todo: change this
+#'   RMariaDB::dbConnect(
 #'     drv = RMariaDB::MariaDB(),
 #'     dbname = "dpeatdecomposition",
-#'     username = "root",
-#'     password = "coucou",
-#'     host = "mariadb"
+#'     default.file = "~/my.cnf"
 #'   )
 #'
-#' # get dpeatdecomposition database as dm object
+#' # get Peatland Decomposition Database as dm object
 #' dm_dpeatdecomposition <- dp_get_dm(con, learn_keys = TRUE)
 #'
-#' # when finished, disconnect
+#' # disconnect
 #' RMariaDB::dbDisconnect(con)
 #' }
 #' @export

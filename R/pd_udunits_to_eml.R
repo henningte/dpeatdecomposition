@@ -3,11 +3,14 @@
 #' `pd_udunits_to_eml` takes a character vector with values representing
 #' udunits units and converts these to units as used by the Ecological Metadata
 #' Language. Note that the function converts only a specific sets of units as
-#' needed for the pmird database. All other units are converted to `NA`.
+#' needed for the Peatland Decomposition Database. All other units are converted
+#' to `NA`.
 #'
 #' @param x A character vector with values representing udunits units.
+#'
 #' @return A character vector with the same length as rows in `x` with
 #' units according to the Ecological Metadata Language.
+#'
 #' @keywords Internal
 #' @examples
 #' \dontrun{

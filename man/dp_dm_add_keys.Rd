@@ -2,26 +2,27 @@
 % Please edit documentation in R/dp_dm_add_keys.R
 \name{dp_dm_add_keys}
 \alias{dp_dm_add_keys}
-\title{Adds primary and foreign keys to a \code{dm} object with tables present in the dpeatdecomposition database}
+\title{Adds primary and foreign keys to a \code{dm} object with tables present in the Peatland Decomposition Database}
 \usage{
 dp_dm_add_keys(x, dm_dpeatdecomposition, progress = NA)
 }
 \arguments{
-\item{x}{A \code{\link[dm]{dm}} object with tables which are present in the
-dpeatdecomposition database.}
+\item{x}{A \code{dm} object with tables that are present in the
+Peatland Decomposition Database.}
 
-\item{dm_dpeatdecomposition}{A \code{\link[dm]{dm}} object representing the dpeatdecomposition
-database. This is used to get the keys present in the dpeatdecomposition database.}
+\item{dm_dpeatdecomposition}{A \code{\link[dm:dm]{dm::dm()}} object representing the
+Peatland Decomposition Database. This is used to get the keys present in the
+Peatland Decomposition Database.}
 
 \item{progress}{A logical value. See
-\code{\link[dm]{dm_examine_constraints}}.}
+\code{\link[dm:dm_examine_constraints]{dm::dm_examine_constraints()}}.}
 }
 \value{
 \code{x} with added primary and foreign keys.
 }
 \description{
 \code{dp_dm_add_keys} is a helper function which takes a \code{dm} object
-with tables from the dpeatdecomposition database, adds the necessary (and possible)
-primary and foreign keys, and checks if these are valid, using
-\code{\link[dm]{dm_examine_constraints}}.
+with tables from the Peatland Decomposition Database, adds the necessary (and
+possible) primary and foreign keys, and checks if these are valid, using
+\code{\link[dm:dm_examine_constraints]{dm::dm_examine_constraints()}}.
 }

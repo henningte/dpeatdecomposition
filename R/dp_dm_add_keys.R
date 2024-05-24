@@ -1,22 +1,30 @@
-#' Adds primary and foreign keys to a \code{dm} object with tables present in the dpeatdecomposition database
+#' Adds primary and foreign keys to a `dm` object with tables present in the Peatland Decomposition Database
 #'
-#' \code{dp_dm_add_keys} is a helper function which takes a \code{dm} object
-#' with tables from the dpeatdecomposition database, adds the necessary (and possible)
-#' primary and foreign keys, and checks if these are valid, using
-#' \code{\link[dm]{dm_examine_constraints}}.
+#' `dp_dm_add_keys` is a helper function which takes a `dm` object
+#' with tables from the Peatland Decomposition Database, adds the necessary (and
+#' possible) primary and foreign keys, and checks if these are valid, using
+#' [dm::dm_examine_constraints()].
 #'
-#' @param x A \code{\link[dm]{dm}} object with tables which are present in the
-#' dpeatdecomposition database.
-#' @param dm_dpeatdecomposition A \code{\link[dm]{dm}} object representing the dpeatdecomposition
-#' database. This is used to get the keys present in the dpeatdecomposition database.
+#' @param x A `dm` object with tables that are present in the
+#' Peatland Decomposition Database.
+#'
+#' @param dm_dpeatdecomposition A [dm::dm()] object representing the
+#' Peatland Decomposition Database. This is used to get the keys present in the
+#' Peatland Decomposition Database.
+#'
 #' @param progress A logical value. See
-#' \code{\link[dm]{dm_examine_constraints}}.
-#' @return \code{x} with added primary and foreign keys.
+#' [dm::dm_examine_constraints()].
+#'
+#' @return `x` with added primary and foreign keys.
+#'
 #' @export
 dp_dm_add_keys <- function(x, dm_dpeatdecomposition, progress = NA) {
 
   stopifnot(inherits(x, "dm"))
   stopifnot(inherits(dm_dpeatdecomposition, "dm"))
+
+  child_table <- NULL
+  parent_table <- NULL
 
   # get keys
   dm_dpeatdecomposition_pk <-
@@ -53,7 +61,7 @@ dp_dm_add_keys <- function(x, dm_dpeatdecomposition, progress = NA) {
 
   x_check <- dm::dm_examine_constraints(x, progress = progress)
   if(!all(x_check$is_key)) {
-    rlang::abort("Key constraint not met!")
+    stop("Key constraint not met!")
   }
 
   x

@@ -1,0 +1,19 @@
+table_name,table_description
+attributes,Defines the attributes of the database and the values in column `attribute_name` in table `data`.
+citations,Stores bibtex entries for references and data sources.
+citations_to_datasets,Links entries in table `citations` with entries in table `datasets`.
+custom_units,Stores custom units.
+data,"Stores measured values for samples, for example remaining masses."
+datasets,Lists the individual datasets.
+experimental_design_format,Stores information on the experimental design of litterbag experiments.
+measurement_scales,Defines data value types.
+measurement_scales_date_time,Defines data value types.
+measurement_scales_interval,Defines data value types.
+measurement_scales_nominal,Defines data value types.
+measurement_scales_ordinal,Defines data value types.
+measurement_scales_ratio,Defines data value types.
+missing_value_codes,Defines how missing values are encoded.
+samples,Stores information on individual samples.
+samples_to_samples,"Links samples to other samples, for example litter samples collected in the field to litter samples collected during the incubation of the litterbags."
+units,Stores information on measurement units.
+unit_types,Stores information on measurement units.
