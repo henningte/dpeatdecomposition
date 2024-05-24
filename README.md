@@ -80,9 +80,12 @@ Nikonova (2017)
 
 # Citation
 
-Cite this package as: Henning Teickner and Klaus-Holger Knorr (2024):
-dpeatdecomposition: R Interface to the Peatland Decomposition Database.
-—todo: URL. accessed: 2024-05-24.
+Cite this package as:
+
+> Henning Teickner and Klaus-Holger Knorr (2024): dpeatdecomposition: R
+> Interface to the Peatland Decomposition Database.
+> <https://github.com/henningte/dpeatdecomposition>. accessed:
+> 2024-05-24.
 
 If you use data from the Peatland Decomposition Database, cite the
 database and the [sources](Sources) linked to each entry you use. For
